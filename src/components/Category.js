@@ -1,11 +1,12 @@
 import React, { PureComponent } from 'react'
 
-export default class Product extends PureComponent {
+export default class Category extends PureComponent {
     render() {
         return (
             <div>
-                this is the page page
+                categories page
             </div>
         )
     }
 }
+

@@ -1,10 +1,10 @@
 import React, { PureComponent } from 'react'
 
-export default class Product extends PureComponent {
+export default class Cart extends PureComponent {
     render() {
         return (
             <div>
-                this is the page page
+                this is the cart page
             </div>
         )
     }
