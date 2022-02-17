@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Link, BrowserRouter as Router } from "react-router-dom";
+import axios from 'axios';
+import jwt_decode from 'jwt-decode';
 
 import AddProduct from './components/AddProduct';
 import Cart from './components/Cart';
@@ -19,6 +21,12 @@ export default class App extends Component {
     this.routerRef = React.createRef();
   }
 
+  componentDidMount() {
+    let user = localStorage.getItem("user");
+    user = user ? JSON.parse(user) : null;
+    this.setState({ user });
+  }
+  
   render() {
     return (
       <Context.Provider
