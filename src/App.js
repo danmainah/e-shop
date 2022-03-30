@@ -21,12 +21,13 @@ export default class App extends Component {
     this.routerRef = React.createRef();
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     let user = localStorage.getItem("user");
+    const products = await axios.get('http://localhost:3001/products');
     user = user ? JSON.parse(user) : null;
-    this.setState({ user });
+    this.setState({ user,  products: products.data });
   }
-
+  
   login = async (email, password) => {
     const res = await axios.post(
       'http://localhost:3001/login',
