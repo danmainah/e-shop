@@ -82,6 +82,19 @@ export default class App extends Component {
     this.setState({ cart });
   };
 
+  removeFromCart = cartItemId => {
+    let cart = this.state.cart;
+    delete cart[cartItemId];
+    localStorage.setItem("cart", JSON.stringify(cart));
+    this.setState({ cart });
+  };
+  
+  clearCart = () => {
+    let cart = {};
+    localStorage.removeItem("cart");
+    this.setState({ cart });
+  };
+
   render() {
     return (
       <Context.Provider
